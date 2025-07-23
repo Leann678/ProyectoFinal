@@ -49,4 +49,24 @@ public class Empresa {
         }
     }
 
+        public void mostrarProyectosDeCliente(String cedulaCliente) {
+        Cliente c = buscarCliente(cedulaCliente);
+        if (c != null) {
+            System.out.println(c.getCantProyectos());
+        }
+    }
+
+    private Proyecto buscarProyecto(String nombreProyecto) {
+        return proyectos.stream()
+                .filter(p -> p.getNombre().equalsIgnoreCase(nombreProyecto))
+                .findFirst()
+                .orElse(null);
+    }
+
+        private Cliente buscarCliente(String cedulaCliente) {
+        return misClientes.stream()
+                .filter(c -> c.getCedulaCliente().equalsIgnoreCase(cedulaCliente))
+                .findFirst()
+                .orElse(null);
+    }
 }
