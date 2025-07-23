@@ -21,6 +21,8 @@ public class Planificador extends Trabajador{
 		this.cantDiasPlanificacion = cantDiasPlanificacion;
 	}
 
-	
+	public boolean planificaCadaXDias(int dias) {
+	    return cantDiasPlanificacion == dias;
+	}
 
 }
