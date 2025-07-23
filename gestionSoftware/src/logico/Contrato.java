@@ -1,15 +1,15 @@
 package logico;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Contrato {
-	private Date fInicio;
-	private Date fEntrega;
+	private LocalDate fInicio;
+	private LocalDate fEntrega;
 	private int cantClientesProyecto;
 	private String idContrato;
 	private String cedulaCliente;
 	private Proyecto proyecto;
-	public Contrato(Date fInicio, Date fEntrega, int cantClientesProyecto, String idContrato, String cedulaCliente,
+	public Contrato(LocalDate fInicio, LocalDate fEntrega, int cantClientesProyecto, String idContrato, String cedulaCliente,
 			Proyecto proyecto) {
 		super();
 		this.fInicio = fInicio;
@@ -19,16 +19,16 @@ public class Contrato {
 		this.cedulaCliente = cedulaCliente;
 		this.proyecto = proyecto;
 	}
-	public Date getfInicio() {
+	public LocalDate getfInicio() {
 		return fInicio;
 	}
-	public void setfInicio(Date fInicio) {
+	public void setfInicio(LocalDate fInicio) {
 		this.fInicio = fInicio;
 	}
-	public Date getfEntrega() {
+	public LocalDate getfEntrega() {
 		return fEntrega;
 	}
-	public void setfEntrega(Date fEntrega) {
+	public void setfEntrega(LocalDate fEntrega) {
 		this.fEntrega = fEntrega;
 	}
 	public int getCantClientesProyecto() {
@@ -52,6 +52,29 @@ public class Contrato {
 	public Proyecto getProyecto() {
 		return proyecto;
 	}
+	public void setProyecto(Proyecto proyecto) {
+		this.proyecto = proyecto;
+	}
+	
+	public boolean esEntregaATiempo(LocalDate fechaEntregaReal) {
+        return !fechaEntregaReal.isAfter(fEntrega);
+    }
+
+    public void prorrogarContrato(LocalDate nuevaFechaEntrega) {
+        this.fEntrega = nuevaFechaEntrega;
+    }
+
+    public boolean estaActivo(LocalDate fechaActual) {
+        return (fechaActual.isEqual(fInicio) || fechaActual.isAfter(fInicio)) && fechaActual.isBefore(fEntrega);
+    }
+
+    @Override
+    public String toString() {
+        return "ID Contrato: " + idContrato + ", Cliente: " + cedulaCliente +
+               ", Proyecto: " + proyecto.getNombre() + ", Inicio: " + fInicio +
+               ", Entrega: " + fEntrega;
+    }
+}
 	public void setProyecto(Proyecto proyecto) {
 		this.proyecto = proyecto;
 	}
