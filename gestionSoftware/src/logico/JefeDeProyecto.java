@@ -23,5 +23,8 @@ public class JefeDeProyecto extends Trabajador {
 		this.cantTrabajadoresProyecto = cantTrabajadoresProyecto;
 	}
 
+	public boolean lideraMasDe(int cantidad) {
+	    return cantTrabajadoresProyecto > cantidad;
+	}
 
 }
