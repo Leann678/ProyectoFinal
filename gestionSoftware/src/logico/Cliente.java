@@ -55,4 +55,21 @@ public class Cliente {
 	public void setCantProyectos(int cantProyectos) {
 		this.cantProyectos = cantProyectos;
 	}
+	
+	public boolean agregarProyecto() {
+	    if (cantProyectos >= 5) return false; 
+	    cantProyectos++;
+	    return true;
+	}
+
+
+	public boolean estaSaturado() {
+	    return cantProyectos >= 5;
+	}
+
+	@Override
+	public String toString() {
+	    return "ID: " + cedulaCliente + ", Nombre: " + nombre +
+	           ", Dirección: " + direccion + ", Proyectos: " + cantProyectos;
+	}
 }
