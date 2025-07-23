@@ -23,7 +23,10 @@ public class Programador extends Trabajador {
 		this.lenguaje = lenguaje;
 	}
 
-	
+	public boolean programaEn(String lenguaje) {
+	    return lenguajeEspecializado.equalsIgnoreCase(lenguaje);
+	}
+
 	
 
 }
