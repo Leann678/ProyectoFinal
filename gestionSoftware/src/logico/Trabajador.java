@@ -97,4 +97,13 @@ public class Trabajador {
 		this.calificacionAnual = calificacionAnual;
 	}
 
+	@Override
+	public String toString() {
+	    return "ID: " + cedulaTrab + ", Nombre: " + nombre + " " + apellido +
+	           ", Dirección: " + direccion + ", Genero: " + genero +
+	           ", Edad: " + edad + ", Salario: $" + salario +
+	           ", Proyecto: " + Proyecto + ", Calificación Anual: " + calificacionAnual;
+	}
+
+
 }
