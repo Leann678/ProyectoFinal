@@ -102,7 +102,7 @@ public class Trabajador {
 	    return "ID: " + cedulaTrab + ", Nombre: " + nombre + " " + apellido +
 	           ", Dirección: " + direccion + ", Genero: " + genero +
 	           ", Edad: " + edad + ", Salario: $" + salario +
-	           ", Proyecto: " + Proyecto + ", Calificación Anual: " + calificacionAnual;
+	           ", Proyecto: " + proyecto + ", Calificación Anual: " + calificacionAnual;
 	}
 
 

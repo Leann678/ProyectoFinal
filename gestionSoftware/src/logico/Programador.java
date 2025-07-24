@@ -24,7 +24,7 @@ public class Programador extends Trabajador {
 	}
 
 	public boolean programaEn(String lenguaje) {
-	    return lenguajeEspecializado.equalsIgnoreCase(lenguaje);
+	    return lenguaje.equalsIgnoreCase(lenguaje);
 	}
 
 	

@@ -52,9 +52,7 @@ public class Contrato {
 	public Proyecto getProyecto() {
 		return proyecto;
 	}
-	public void setProyecto(Proyecto proyecto) {
-		this.proyecto = proyecto;
-	}
+
 	
 	public boolean esEntregaATiempo(LocalDate fechaEntregaReal) {
         return !fechaEntregaReal.isAfter(fEntrega);
@@ -74,7 +72,7 @@ public class Contrato {
                ", Proyecto: " + proyecto.getNombre() + ", Inicio: " + fInicio +
                ", Entrega: " + fEntrega;
     }
-}
+
 	public void setProyecto(Proyecto proyecto) {
 		this.proyecto = proyecto;
 	}
