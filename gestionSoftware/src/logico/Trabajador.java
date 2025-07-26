@@ -100,9 +100,9 @@ public class Trabajador {
 	@Override
 	public String toString() {
 	    return "ID: " + cedulaTrab + ", Nombre: " + nombre + " " + apellido +
-	           ", Dirección: " + direccion + ", Genero: " + genero +
+	           ", Direccion: " + direccion + ", Genero: " + genero +
 	           ", Edad: " + edad + ", Salario: $" + salario +
-	           ", Proyecto: " + proyecto + ", Calificación Anual: " + calificacionAnual;
+	           ", Proyecto: " + proyecto + ", Calificacion Anual: " + calificacionAnual;
 	}
 
 
