@@ -9,7 +9,7 @@ public class Trabajador {
 	protected int edad;
 	protected float salario;
 	protected String calificacionAnual;
-	private Proyecto proyectoAsinado;
+	private Proyecto proyectoAsignado;
 	
 	public Trabajador(String cedulaTrab, String nombre, String apellido, String direccion, String genero, int edad,
 			float salario, String calificacionAnual, Proyecto proyectoAsignado) {
