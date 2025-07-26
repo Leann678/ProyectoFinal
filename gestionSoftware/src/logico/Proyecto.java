@@ -8,7 +8,7 @@ public class Proyecto {
 	private String nombreProyecto;
 	private ArrayList<Trabajador>misTrab;
 	private ArrayList<Cliente>misClientes;
-	public Proyecto(String nombre, ArrayList<Trabajador> misTrab, ArrayList<Cliente> misClientes) {
+	public Proyecto(String nombreProyecto, ArrayList<Trabajador> misTrab, ArrayList<Cliente> misClientes) {
 		super();
 		this.nombre = nombre;
 		this.misTrab = new ArrayList<>();
