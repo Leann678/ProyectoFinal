@@ -8,12 +8,11 @@ public class Trabajador {
 	protected String genero;
 	protected int edad;
 	protected float salario;
-	protected String proyecto;
 	protected String calificacionAnual;
 	private Proyecto proyectoAsinado;
 	
 	public Trabajador(String cedulaTrab, String nombre, String apellido, String direccion, String genero, int edad,
-			float salario, String proyecto, String calificacionAnual, Proyecto proyectoAsignado) {
+			float salario, String calificacionAnual, Proyecto proyectoAsignado) {
 		super();
 		this.cedulaTrab = cedulaTrab;
 		this.nombre = nombre;
@@ -22,7 +21,6 @@ public class Trabajador {
 		this.genero = genero;
 		this.edad = edad;
 		this.salario = salario;
-		this.proyecto = proyecto;
 		this.calificacionAnual = calificacionAnual;
 		this.proyectoAsignado = proyectoAsigando;
 	}
@@ -81,14 +79,6 @@ public class Trabajador {
 
 	public void setSalario(float salario) {
 		this.salario = salario;
-	}
-
-	public String getProyecto() {
-		return proyecto;
-	}
-
-	public void setProyecto(String proyecto) {
-		this.proyecto = proyecto;
 	}
 
 	public String getCalificacionAnual() {
