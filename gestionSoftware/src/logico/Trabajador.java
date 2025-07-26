@@ -10,9 +10,10 @@ public class Trabajador {
 	protected float salario;
 	protected String proyecto;
 	protected String calificacionAnual;
+	private Proyecto proyectoAsinado;
 	
 	public Trabajador(String cedulaTrab, String nombre, String apellido, String direccion, String genero, int edad,
-			float salario, String proyecto, String calificacionAnual) {
+			float salario, String proyecto, String calificacionAnual, Proyecto proyectoAsignado) {
 		super();
 		this.cedulaTrab = cedulaTrab;
 		this.nombre = nombre;
@@ -23,6 +24,7 @@ public class Trabajador {
 		this.salario = salario;
 		this.proyecto = proyecto;
 		this.calificacionAnual = calificacionAnual;
+		this.proyectoAsignado = proyectoAsigando;
 	}
 
 	public String getCedulaTrab() {
@@ -97,12 +99,22 @@ public class Trabajador {
 		this.calificacionAnual = calificacionAnual;
 	}
 
+	public Proyecto getProyectoAsignado() {
+        return proyectoAsignado;
+    	}
+
+	public void setProyectoAsignado(Proyecto proyectoAsignado) {
+        this.proyectoAsignado = proyectoAsignado;
+    	}
+
+
+
 	@Override
 	public String toString() {
 	    return "ID: " + cedulaTrab + ", Nombre: " + nombre + " " + apellido +
 	           ", Direccion: " + direccion + ", Genero: " + genero +
 	           ", Edad: " + edad + ", Salario: $" + salario +
-	           ", Proyecto: " + proyecto + ", Calificacion Anual: " + calificacionAnual;
+	           ", Proyecto: " + proyecto + ", Calificacion Anual: " + calificacionAnual + ", Proyecto Asignado: " + proyectoAsignado;
 	}
 
 
