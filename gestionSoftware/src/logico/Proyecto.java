@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Proyecto {
-	private String nombre;
+	private String nombreProyecto;
 	private ArrayList<Trabajador>misTrab;
 	private ArrayList<Cliente>misClientes;
 	public Proyecto(String nombre, ArrayList<Trabajador> misTrab, ArrayList<Cliente> misClientes) {
@@ -13,10 +13,10 @@ public class Proyecto {
 		this.nombre = nombre;
 		this.misTrab = new ArrayList<>();
 	    this.misClientes = new ArrayList<>();	}
-	public String getNombre() {
+	public String getNombreProyecto() {
 		return nombre;
 	}
-	public void setNombre(String nombre) {
+	public void setNombreProyecto(String nombre) {
 		this.nombre = nombre;
 	}
 	public ArrayList<Trabajador> getMisTrab() {
