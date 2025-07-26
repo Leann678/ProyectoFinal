@@ -171,22 +171,18 @@ public class Principal extends JFrame {
 				 for (JInternalFrame frame : desktopPane.getAllFrames()) {
 	                    if (frame instanceof RegTrabajador) {
 	                        try {
-	                            frame.setSelected(true); // Bring to front
-	                            return; // Don't open a new one
+	                            frame.setSelected(true); 
+	                            return;
 	                        } catch (java.beans.PropertyVetoException pve) {
-	                            pve.printStackTrace(); // Handle potential veto (e.g., if frame is closing)
+	                            pve.printStackTrace(); 
 	                        }
 	                    }
 	                }
-				/*RegTrabajador regTrabajadorDialog = new RegTrabajador();
-				regTrabajadorDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-		        regTrabajadorDialog.setVisible(true);
-		        */
 				 RegTrabajador regTrabajadorFrame = new RegTrabajador();
-	                desktopPane.add(regTrabajadorFrame); // Add the internal frame to the desktop pane
-	                regTrabajadorFrame.setVisible(true); // Make it visible
+	                desktopPane.add(regTrabajadorFrame);
+	                regTrabajadorFrame.setVisible(true); 
 	                try {
-	                    regTrabajadorFrame.setSelected(true); // Bring to front
+	                    regTrabajadorFrame.setSelected(true); 
 	                } catch (java.beans.PropertyVetoException pve) {
 	                    pve.printStackTrace();
 	                }
@@ -221,6 +217,28 @@ public class Principal extends JFrame {
 		
 		//CLIENTE
 		JButton btnNewButton_2 = new JButton("Registrar Cliente");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				 for (JInternalFrame frame : desktopPane.getAllFrames()) {
+	                    if (frame instanceof RegCliente) {
+	                        try {
+	                            frame.setSelected(true); 
+	                            return;
+	                        } catch (java.beans.PropertyVetoException pve) {
+	                            pve.printStackTrace(); 
+	                        }
+	                    }
+	                }
+				 RegCliente RegClienteFrame = new RegCliente();
+	                desktopPane.add(RegClienteFrame);
+	                RegClienteFrame.setVisible(true); 
+	                try {
+	                	RegClienteFrame.setSelected(true); 
+	                } catch (java.beans.PropertyVetoException pve) {
+	                    pve.printStackTrace();
+	                }
+			}
+		});
 		btnNewButton_2.setFont(new Font("Cambria", Font.BOLD | Font.ITALIC, 15));
 		btnNewButton_2.setBackground(new Color(41, 41, 132));
 		btnNewButton_2.addMouseListener(new MouseAdapter() {
@@ -249,6 +267,28 @@ public class Principal extends JFrame {
 		
 		//CONTRATO
 		JButton btnNewButton_3 = new JButton("Creacion de contrato");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				for (JInternalFrame frame : desktopPane.getAllFrames()) {
+                    if (frame instanceof RegContrato) {
+                        try {
+                            frame.setSelected(true); 
+                            return;
+                        } catch (java.beans.PropertyVetoException pve) {
+                            pve.printStackTrace(); 
+                        }
+                    }
+                }
+				RegContrato RegContratoFrame = new RegContrato();
+                desktopPane.add(RegContratoFrame);
+                RegContratoFrame.setVisible(true); 
+                try {
+                	RegContratoFrame.setSelected(true); 
+                } catch (java.beans.PropertyVetoException pve) {
+                    pve.printStackTrace();
+                }
+			}
+		});
 		btnNewButton_3.setFont(new Font("Cambria", Font.BOLD | Font.ITALIC, 15));
 		btnNewButton_3.setBackground(new Color(41, 41, 132));
 		btnNewButton_3.addMouseListener(new MouseAdapter() {

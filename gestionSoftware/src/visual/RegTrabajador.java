@@ -1,9 +1,9 @@
 package visual;
 
 import java.awt.BorderLayout;
-import java.awt.FlowLayout; // Potentially used for the button panel
+import java.awt.FlowLayout; 
 import javax.swing.JButton;
-import javax.swing.JInternalFrame; // <--- Change to JInternalFrame
+import javax.swing.JInternalFrame; 
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
@@ -59,7 +59,6 @@ public class RegTrabajador extends JInternalFrame {
         JScrollPane scrollPane = new JScrollPane(table);
         mainContentPanel.add(scrollPane, BorderLayout.CENTER); 
 
-        // Panel for the insert button
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); 
         JButton btnInsertar = new JButton("Insertar Nuevo Trabajador");
         buttonPanel.add(btnInsertar);
@@ -68,16 +67,40 @@ public class RegTrabajador extends JInternalFrame {
         btnInsertar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String id = JOptionPane.showInputDialog(RegTrabajador.this, "Ingrese ID:");
-                String nombre = JOptionPane.showInputDialog(RegTrabajador.this, "Ingrese Nombre:");
-                String apellido = JOptionPane.showInputDialog(RegTrabajador.this, "Ingrese Apellido:");
-                String puesto = JOptionPane.showInputDialog(RegTrabajador.this, "Ingrese Puesto:");
-                String salario = JOptionPane.showInputDialog(RegTrabajador.this, "Ingrese Salario:");
+            InstertarTrabajador insertTra = new InstertarTrabajador();
+            insertTra.setLocationRelativeTo(RegTrabajador.this); 
+            insertTra.setVisible(true);
+            if(insertTra.isConfirmed()) {
+            	String cedula = insertTra.getTxtCedula();
+                String posicion = insertTra.getPosicion();
+                String especialidad = insertTra.getTxtEspecialidad();
+                String nombre = insertTra.getTxtNombre();
+                String apellido = insertTra.getTxtApellido();
+                String dirreccion = insertTra.getTxtDirreccion();
+                String genero = insertTra.getGenero();
+                String edad = insertTra.getTxtEdad();
+                String salario = insertTra.getTxtSalario();
+                String proyecto = insertTra.getTxtProyecto();
+                String calificacionAnual = insertTra.getCalificacionAnual();
+                
+                if(cedula.isEmpty() || posicion.equals("Seleccione") || especialidad.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || 
+                		dirreccion.isEmpty() || genero.equals("Seleccione") || edad.isEmpty() || salario.isEmpty() || proyecto.isEmpty() || calificacionAnual.equals("Seleccione")) {
+                	  try {
+                          int parsedEdad = Integer.parseInt(edad);
+                          double parsedSalario = Double.parseDouble(salario);
 
-                if (id != null && nombre != null && apellido != null && puesto != null && salario != null) {
-                    tableModel.addRow(new Object[]{id, nombre, apellido, puesto, salario});
+                          tableModel.addRow(new Object[]{
+                              cedula, posicion, especialidad, nombre, apellido,
+                              dirreccion, genero, parsedEdad, parsedSalario, proyecto, calificacionAnual
+                          });
+                      } catch (NumberFormatException ex) {
+                          JOptionPane.showMessageDialog(RegTrabajador.this, 
+                                  "Error de formato en Edad o Salario. Por favor, ingrese valores numéricos válidos.", 
+                                  "Error de Formato", JOptionPane.ERROR_MESSAGE);
+                      }
                 }
-            }
+            }   
+           }
         });
     }
 
