@@ -58,7 +58,9 @@ public class RegContrato extends JInternalFrame {
         tableModel.addColumn("Cantidad de Clientes Por Proyecto");
         //4
         tableModel.addColumn("ID");
-       //5
+        //5
+        tableModel.addColumn("Cedula Cliente");
+       //6
         tableModel.addColumn("Proyecto");
         
         JScrollPane scrollPane = new JScrollPane(table);
