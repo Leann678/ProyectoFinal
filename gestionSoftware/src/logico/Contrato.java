@@ -8,16 +8,16 @@ public class Contrato {
 	private int cantClientesProyecto;
 	private String idContrato;
 	private String cedulaCliente;
-	private Proyecto proyecto;
+	private Proyecto nombreProyecto;
 	public Contrato(LocalDate fInicio, LocalDate fEntrega, int cantClientesProyecto, String idContrato, String cedulaCliente,
-			Proyecto proyecto) {
+			Proyecto nombreProyecto) {
 		super();
 		this.fInicio = fInicio;
 		this.fEntrega = fEntrega;
 		this.cantClientesProyecto = cantClientesProyecto;
 		this.idContrato = idContrato;
 		this.cedulaCliente = cedulaCliente;
-		this.proyecto = proyecto;
+		this.nombreProyecto = nombreProyecto;
 	}
 	public LocalDate getfInicio() {
 		return fInicio;
@@ -49,8 +49,8 @@ public class Contrato {
 	public void setCedulaCliente(String cedulaCliente) {
 		this.cedulaCliente = cedulaCliente;
 	}
-	public Proyecto getProyecto() {
-		return proyecto;
+	public Proyecto getNombreProyecto() {
+		return nombreProyecto;
 	}
 
 	
@@ -69,11 +69,11 @@ public class Contrato {
     @Override
     public String toString() {
         return "ID Contrato: " + idContrato + ", Cliente: " + cedulaCliente +
-               ", Proyecto: " + proyecto.getNombre() + ", Inicio: " + fInicio +
+               ", Proyecto: " + nombreProyecto + ", Inicio: " + fInicio +
                ", Entrega: " + fEntrega;
     }
 
-	public void setProyecto(Proyecto proyecto) {
-		this.proyecto = proyecto;
+	public void setProyecto(Proyecto nombreProyecto) {
+		this.nombreProyecto = nombreProyecto;
 	}
 }

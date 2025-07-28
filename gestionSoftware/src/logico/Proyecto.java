@@ -10,16 +10,16 @@ public class Proyecto {
 	private ArrayList<Cliente>misClientes;
 	public Proyecto(String nombreProyecto, ArrayList<Trabajador> misTrab, ArrayList<Cliente> misClientes) {
 		super();
-		this.nombre = nombreProyecto;
+		this.nombreProyecto = nombreProyecto;
 		this.misTrab = new ArrayList<>();
 	    this.misClientes = new ArrayList<>();	
 	}
 	
 	public String getNombreProyecto() {
-		return nombre;
+		return nombreProyecto;
 	}
-	public void setNombreProyecto(String nombre) {
-		this.nombre = nombre;
+	public void setNombreProyecto(String nombreProyecto) {
+		this.nombreProyecto = nombreProyecto;
 	}
 	public ArrayList<Trabajador> getMisTrab() {
 		return misTrab;

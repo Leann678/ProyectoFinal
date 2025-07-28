@@ -22,7 +22,7 @@ public class Trabajador {
 		this.edad = edad;
 		this.salario = salario;
 		this.calificacionAnual = calificacionAnual;
-		this.proyectoAsignado = proyectoAsigando;
+		this.proyectoAsignado = proyectoAsignado;
 	}
 
 	public String getCedulaTrab() {
@@ -104,7 +104,7 @@ public class Trabajador {
 	    return "ID: " + cedulaTrab + ", Nombre: " + nombre + " " + apellido +
 	           ", Direccion: " + direccion + ", Genero: " + genero +
 	           ", Edad: " + edad + ", Salario: $" + salario +
-	           ", Proyecto: " + proyecto + ", Calificacion Anual: " + calificacionAnual + ", Proyecto Asignado: " + proyectoAsignado;
+	           ", Calificacion Anual: " + calificacionAnual + ", Proyecto Asignado: " + proyectoAsignado;
 	}
 
 

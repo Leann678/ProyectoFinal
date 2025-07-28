@@ -4,8 +4,8 @@ public class Planificador extends Trabajador{
 	private int cantDiasPlanificacion;
 	
 	public Planificador(String cedulaTrab, String nombre, String apellido, String direccion, String genero, int edad,
-			float salario, String proyecto, String calificacionAnual, Proyecto proyectoAsignado) {
-		super(cedulaTrab, nombre, apellido, direccion, genero, edad, salario, proyecto, calificacionAnual, proyectoAsignado);
+			float salario, String calificacionAnual, Proyecto proyectoAsignado) {
+		super(cedulaTrab, nombre, apellido, direccion, genero, edad, salario, calificacionAnual, proyectoAsignado);
 		// TODO Auto-generated constructor stub
 	}
 	/**

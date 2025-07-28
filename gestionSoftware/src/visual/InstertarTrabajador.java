@@ -15,6 +15,7 @@ import javax.swing.JSpinner;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
@@ -58,13 +59,15 @@ public class InstertarTrabajador extends JDialog {
 	 * Create the dialog.
 	 */
 	public InstertarTrabajador() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/images/favicon-32x32.png")));
 		setBounds(100, 100, 734, 572);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(Color.WHITE);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
-		
+		setLocationRelativeTo(null);
+
 		JLabel lblNewLabel = new JLabel("Cedula");
 		lblNewLabel.setFont(new Font("Cambria", Font.BOLD, 15));
 		lblNewLabel.setBounds(12, 55, 80, 16);
@@ -190,6 +193,20 @@ public class InstertarTrabajador extends JDialog {
 		contentPanel.add(txtProyecto);
 		
 		btnOK = new JButton("OK");
+		btnOK.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnOK.setOpaque(false);
+				btnOK.setContentAreaFilled(false);
+				btnOK.setForeground(Color.blue);
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnOK.setOpaque(true);
+				btnOK.setContentAreaFilled(true);
+				btnOK.setForeground(Color.black);
+			}
+		});
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				 confirmed = true; 

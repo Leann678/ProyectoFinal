@@ -68,6 +68,13 @@ public class RegContrato extends JInternalFrame {
 
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); 
         JButton btnInsertar = new JButton("Insertar Nuevo Contrato");
+        btnInsertar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		InsertarContrato insertCont = new InsertarContrato();
+        		insertCont.setLocationRelativeTo(RegContrato.this);
+        		insertCont.setVisible(true);
+        	}
+        });
         buttonPanel.add(btnInsertar);
         mainContentPanel.add(buttonPanel, BorderLayout.SOUTH); 	}
 

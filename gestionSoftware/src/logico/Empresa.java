@@ -27,7 +27,7 @@ public class Empresa {
     }
 
     public boolean crearContrato(Contrato contrato) {
-        Proyecto p = buscarProyecto(contrato.getProyecto().getNombre());
+        Proyecto p = buscarProyecto(contrato.getNombreProyecto().getNombreProyecto());
         Cliente c = buscarCliente(contrato.getCedulaCliente());
         if (p == null || c == null || p.estaSaturado() || c.estaSaturado()) return false;
         contratos.add(contrato);
@@ -58,7 +58,7 @@ public class Empresa {
 
     private Proyecto buscarProyecto(String nombreProyecto) {
         return proyectos.stream()
-                .filter(p -> p.getNombre().equalsIgnoreCase(nombreProyecto))
+                .filter(p -> p.getNombreProyecto().equalsIgnoreCase(nombreProyecto))
                 .findFirst()
                 .orElse(null);
     }

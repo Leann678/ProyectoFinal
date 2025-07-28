@@ -65,6 +65,13 @@ public class RegCliente extends JInternalFrame{
 
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); 
         JButton btnInsertar = new JButton("Insertar Nuevo Cliente");
+        btnInsertar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		InsertarCliente insertCli = new InsertarCliente();
+        		insertCli.setLocationRelativeTo(RegCliente.this);
+        		insertCli.setVisible(true);
+        	}
+        });
         buttonPanel.add(btnInsertar);
         mainContentPanel.add(buttonPanel, BorderLayout.SOUTH); 
 	}

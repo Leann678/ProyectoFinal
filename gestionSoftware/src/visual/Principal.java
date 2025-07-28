@@ -77,7 +77,7 @@ public class Principal extends JFrame {
 	 */
 	public Principal() {
 		setFont(new Font("Cambria", Font.BOLD | Font.ITALIC, 18));
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Principal.class.getResource("/images/download.jpg")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/images/favicon-32x32.png")));
 		setTitle("Vortex Software");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -331,7 +331,7 @@ public class Principal extends JFrame {
 			public void mouseExited(MouseEvent e) {
 				btnLogOut.setOpaque(true);
 				btnLogOut.setContentAreaFilled(true);
-				btnLogOut.setForeground(SystemColor.black);
+				btnLogOut.setForeground(SystemColor.white);
 			}
 		});
 		btnLogOut.addActionListener(new ActionListener() {

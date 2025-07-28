@@ -1,10 +1,11 @@
+
 package logico;
 
-public class Dise√±ador extends Trabajador{
+public class DiseÒador extends Trabajador{
 
-	public Dise√±ador(String cedulaTrab, String nombre, String apellido, String direccion, String genero, int edad,
-			float salario, String proyecto, String calificacionAnual, Proyecto proyectoAsignado) {
-		super(cedulaTrab, nombre, apellido, direccion, genero, edad, salario, proyecto, calificacionAnual, proyectoAsignado);
+	public  DiseÒador(String cedulaTrab, String nombre, String apellido, String direccion, String genero, int edad,
+			float salario, String calificacionAnual, Proyecto proyectoAsignado) {
+		super(cedulaTrab, nombre, apellido, direccion, genero, edad, salario, calificacionAnual, proyectoAsignado);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -14,3 +15,10 @@ public class Dise√±ador extends Trabajador{
 
 
 }
+
+
+
+
+
+
+

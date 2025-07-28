@@ -12,6 +12,7 @@ import java.awt.Font;
 import java.awt.Cursor;
 import javax.swing.JTextField;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -42,12 +43,16 @@ public class InsertarContrato extends JDialog {
 	 * Create the dialog.
 	 */
 	public InsertarContrato() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/images/favicon-32x32.png")));
+		setTitle("Insertar Contrato");
 		setBounds(100, 100, 687, 444);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(SystemColor.text);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		contentPanel.setLayout(null);
+		setLocationRelativeTo(null);
+
 		
 		JLabel lblNewLabel = new JLabel("Fecha de Inicio");
 		lblNewLabel.setFont(new Font("Cambria", Font.BOLD, 15));
