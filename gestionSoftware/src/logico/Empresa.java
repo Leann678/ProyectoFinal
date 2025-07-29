@@ -10,34 +10,28 @@ public class Empresa {
     private List<Cliente> misClientes;
     private List<Contrato> contratos;
     private List<Proyecto> proyectos;
-    private static Empresa empre = null;
-    public static int generadorTrab = 1;
-    public static int generadorCliente = 1;
-    public static int generadorContrato = 1;
+    private static Empresa emp = null;
+
+    private Empresa() {
+        misTrab = new ArrayList<>();
+        misClientes = new ArrayList<>();
+        contratos = new ArrayList<>();
+        proyectos = new ArrayList<>();
+            }
     
     public static Empresa getInstance() {
-		if(empre == null) {
-			empre = new Empresa();
+		if(emp == null) {
+			emp = new Empresa();
 		}
-		return empre;
+		return emp; // contructor de la clase controladora debe ser privado, crear una variable estatica y crear un metodo estatico //
 	}
-    
-    private Empresa() {
-    	super();
-        this.misTrab = new ArrayList<>();
-        this.misClientes = new ArrayList<>();
-        this.contratos = new ArrayList<>();
-        this.proyectos = new ArrayList<>();
+	
+    public boolean registrarTrabajador(Trabajador t) {
+        return misTrab.add(t);
     }
 
-    public void registrarTrabajador(Trabajador t) {
-         misTrab.add(t);
-        generadorTrab++;
-    }
-
-       public void registrarCliente(Cliente c) {
-         misClientes.add(c);
-         generadorCliente++;
+       public boolean registrarCliente(Cliente c) {
+        return misClientes.add(c);
     }
 
     public boolean crearContrato(Contrato contrato) {
@@ -47,7 +41,6 @@ public class Empresa {
         contratos.add(contrato);
         p.agregarCliente(c);
         c.agregarProyecto();
-        generadorContrato++;
         return true;
     }
 
