@@ -51,13 +51,13 @@ public class RegContrato extends JInternalFrame {
         tableModel = new DefaultTableModel();
         table = new JTable(tableModel);
         //1
+        tableModel.addColumn("ID");
+        //2
         tableModel.addColumn("Fecha de Inicio");
         //2
         tableModel.addColumn("Fecha de Entrega");
         //3
         tableModel.addColumn("Cantidad de Clientes Por Proyecto");
-        //4
-        tableModel.addColumn("ID");
         //5
         tableModel.addColumn("Cedula Cliente");
        //6

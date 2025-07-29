@@ -22,7 +22,6 @@ public class RegTrabajador extends JInternalFrame {
 
     public RegTrabajador() {
     	setResizable(true);
-		
 
         setBounds(150, 50, 1300, 400);
         
@@ -43,13 +42,7 @@ public class RegTrabajador extends JInternalFrame {
         tableModel.addColumn("Nombre");
         //5
         tableModel.addColumn("Apellido");
-        //6
-        tableModel.addColumn("Dirreccion");
-        //7
-        tableModel.addColumn("Genero");
-        //8
-        tableModel.addColumn("Edad");
-        //9
+    
         tableModel.addColumn("Salario");
         //10
         tableModel.addColumn("Proyecto");
@@ -70,37 +63,7 @@ public class RegTrabajador extends JInternalFrame {
             InstertarTrabajador insertTra = new InstertarTrabajador();
             insertTra.setLocationRelativeTo(RegTrabajador.this); 
             insertTra.setVisible(true);
-            if(insertTra.isConfirmed()) {
-            	String cedula = insertTra.getTxtCedula();
-                String posicion = insertTra.getPosicion();
-                String especialidad = insertTra.getTxtEspecialidad();
-                String nombre = insertTra.getTxtNombre();
-                String apellido = insertTra.getTxtApellido();
-                String dirreccion = insertTra.getTxtDirreccion();
-                String genero = insertTra.getGenero();
-                String edad = insertTra.getTxtEdad();
-                String salario = insertTra.getTxtSalario();
-                String proyecto = insertTra.getTxtProyecto();
-                String calificacionAnual = insertTra.getCalificacionAnual();
-                
-                if(cedula.isEmpty() || posicion.equals("Seleccione") || especialidad.isEmpty() || nombre.isEmpty() || apellido.isEmpty() || 
-                		dirreccion.isEmpty() || genero.equals("Seleccione") || edad.isEmpty() || salario.isEmpty() || proyecto.isEmpty() || calificacionAnual.equals("Seleccione")) {
-                	  try {
-                          int parsedEdad = Integer.parseInt(edad);
-                          double parsedSalario = Double.parseDouble(salario);
-
-                          tableModel.addRow(new Object[]{
-                              cedula, posicion, especialidad, nombre, apellido,
-                              dirreccion, genero, parsedEdad, parsedSalario, proyecto, calificacionAnual
-                          });
-                      } catch (NumberFormatException ex) {
-                          JOptionPane.showMessageDialog(RegTrabajador.this, 
-                                  "Error de formato en Edad o Salario. Por favor, ingrese valores numéricos válidos.", 
-                                  "Error de Formato", JOptionPane.ERROR_MESSAGE);
-                      }
                 }
-            }   
-           }
         });
     }
 

@@ -114,6 +114,12 @@ public class Login extends JDialog {
 					frame.setVisible(true);
 					dispose();
 				}
+				if(username.equals("admin2") && password.equals("12345")){
+					JOptionPane.showMessageDialog(null, "Inicio de sesion exitoso","Notificación",JOptionPane.INFORMATION_MESSAGE);
+					Principal frame = new Principal();
+					frame.setVisible(true);
+					dispose();
+				}
 			}
 		});
 		btnLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));

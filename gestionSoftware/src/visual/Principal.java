@@ -24,6 +24,9 @@ import javax.swing.JMenu;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.border.TitledBorder;
+
+import logico.Empresa;
+
 import javax.swing.JButton;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.BevelBorder;
@@ -63,6 +66,7 @@ public class Principal extends JFrame {
 			public void run() {
 				try {
 					Principal frame = new Principal();
+					Empresa.getInstance();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();

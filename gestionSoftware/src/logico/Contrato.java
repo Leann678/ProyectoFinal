@@ -1,6 +1,7 @@
 package logico;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Contrato {
 	private LocalDate fInicio;
@@ -9,6 +10,8 @@ public class Contrato {
 	private String idContrato;
 	private String cedulaCliente;
 	private Proyecto nombreProyecto;
+	private Cliente cliente;
+	
 	public Contrato(LocalDate fInicio, LocalDate fEntrega, int cantClientesProyecto, String idContrato, String cedulaCliente,
 			Proyecto nombreProyecto) {
 		super();

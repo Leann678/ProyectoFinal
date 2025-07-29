@@ -8,11 +8,14 @@ public class Proyecto {
 	private String nombreProyecto;
 	private ArrayList<Trabajador>misTrab;
 	private ArrayList<Cliente>misClientes;
-	public Proyecto(String nombreProyecto, ArrayList<Trabajador> misTrab, ArrayList<Cliente> misClientes) {
+	private Contrato contrato;
+	
+	
+	public Proyecto(String nombreProyecto, ArrayList<Trabajador> misTrab, ArrayList<Cliente> misClientes, Contrato contrato) {
 		super();
 		this.nombreProyecto = nombreProyecto;
 		this.misTrab = new ArrayList<>();
-	    this.misClientes = new ArrayList<>();	
+	    this.setContrato(contrato);
 	}
 	
 	public String getNombreProyecto() {
@@ -52,6 +55,20 @@ public class Proyecto {
 	        .filter(t -> t.getClass().getSimpleName().equalsIgnoreCase(rol))
 	        .collect(Collectors.toCollection(ArrayList::new));
 
+	}
+
+	/**
+	 * @return the contrato
+	 */
+	public Contrato getContrato() {
+		return contrato;
+	}
+
+	/**
+	 * @param contrato the contrato to set
+	 */
+	public void setContrato(Contrato contrato) {
+		this.contrato = contrato;
 	}
 
 }

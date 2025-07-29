@@ -1,11 +1,14 @@
 package logico;
 
+import java.util.ArrayList;
+
 public class Cliente {
 	private String nombre;
 	private String apellido;
 	private String cedulaCliente;
 	private String direccion;
 	private int cantProyectos;
+	private ArrayList<Proyecto>misProyectos;
 	
 	public Cliente(String nombre, String apellido, String cedulaCliente, String direccion, int cantProyectos) {
 		super();

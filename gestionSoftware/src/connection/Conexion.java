@@ -10,7 +10,7 @@ public class Conexion {
 	private Connection conexion; //Objeto de conexion
 	
 	//Parametros de conexion
-	private final String URL = "jdbc:mysql://localhost:3306/vino";
+	private final String URL = "jdbc:mysql://localhost:3306/VortexSoftware2";
 	private final String USER = "root";
 	private final String PASSWORD = "diego2006";
 	private final String DRIVER = "com.mysql.cj.jdbc.Driver";
