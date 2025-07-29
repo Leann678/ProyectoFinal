@@ -10,14 +10,22 @@ public class Empresa {
     private List<Cliente> misClientes;
     private List<Contrato> contratos;
     private List<Proyecto> proyectos;
+    private static Empresa emp = null;
 
-    public Empresa() {
+    private Empresa() {
         misTrab = new ArrayList<>();
         misClientes = new ArrayList<>();
         contratos = new ArrayList<>();
         proyectos = new ArrayList<>();
-    }
-
+            }
+    
+    public static Empresa getInstance() {
+		if(emp == null) {
+			emp = new Empresa();
+		}
+		return emp; // contructor de la clase controladora debe ser privado, crear una variable estatica y crear un metodo estatico //
+	}
+	
     public boolean registrarTrabajador(Trabajador t) {
         return misTrab.add(t);
     }
