@@ -1,23 +1,23 @@
-package connection;
+package conexion;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Conexion {
+public class BDconexion {
 
 	
-	private static Conexion instancia; //Instancia unica (singleton)
+	private static BDconexion instancia; //Instancia unica (singleton)
 	private Connection conexion; //Objeto de conexion
 	
 	//Parametros de conexion
 	private final String URL = "jdbc:mysql://localhost:3306/VortexSoftware2";
 	private final String USER = "root";
-	private final String PASSWORD = "diego2006";
+	private final String PASSWORD = "valdez0013";
 	private final String DRIVER = "com.mysql.cj.jdbc.Driver";
 	
 	//Constructor privado
 	
-	private Conexion() {
+	private BDconexion() {
 		try {
 			Class.forName(DRIVER);
 			conexion = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -30,9 +30,9 @@ public class Conexion {
 	
 	//Metodo publico para obtener la instanca unica
 	
-	public static Conexion getInstance() {
+	public static BDconexion getInstance() {
 		if(instancia == null) {
-			instancia = new Conexion ();
+			instancia = new BDconexion ();
 		}
 		return instancia;
 	}
@@ -43,16 +43,16 @@ public class Conexion {
 		return conexion;
 	}
 	
-	//Metodo para cerrar la conexión.
+	//Metodo para cerrar la conexiÃ³n.
 	
 	public void cerrarConexion() {
 		try {
 			if (conexion != null && !conexion.isClosed()) {
 				conexion.close();
-				System.out.println("Conexión cerrada correctamente.");
+				System.out.println("ConexiÃ³n cerrada correctamente.");
 			}
 		} catch (SQLException e) {
-			System.err.println("Error al cerrar la conexión:");
+			System.err.println("Error al cerrar la conexiÃ³n:");
 			e.printStackTrace();
 		}
 	}
