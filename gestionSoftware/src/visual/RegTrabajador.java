@@ -14,6 +14,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.border.CompoundBorder; 
+import logico.Trabajador;
+import logico.Empresa;
+import logico.Proyecto;
 
 public class RegTrabajador extends JInternalFrame { 
 
@@ -31,22 +34,14 @@ public class RegTrabajador extends JInternalFrame {
         getContentPane().add(mainContentPanel, BorderLayout.CENTER);
 
         tableModel = new DefaultTableModel();
-        table = new JTable(tableModel);
-        //1
+        table = new JTable(tableModel);   
         tableModel.addColumn("Cedula");
-        //2
         tableModel.addColumn("Posicion");
-        //3
         tableModel.addColumn("Especialidad");
-        //4
         tableModel.addColumn("Nombre");
-        //5
         tableModel.addColumn("Apellido");
-    
         tableModel.addColumn("Salario");
-        //10
-        tableModel.addColumn("Proyecto");
-        //11
+        tableModel.addColumn("Proyecto");        
         tableModel.addColumn("Calificacion Anual");
         
         JScrollPane scrollPane = new JScrollPane(table);
@@ -60,12 +55,35 @@ public class RegTrabajador extends JInternalFrame {
         btnInsertar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            InstertarTrabajador insertTra = new InstertarTrabajador();
-            insertTra.setLocationRelativeTo(RegTrabajador.this); 
-            insertTra.setVisible(true);
+            	InstertarTrabajador insertTra = new InstertarTrabajador(RegTrabajador.this);
+            	insertTra.setLocationRelativeTo(RegTrabajador.this);
+                 insertTra.setVisible(true);
                 }
         });
     }
-
+    public void agregarTrabajador(Trabajador tab) {
+    	System.out.println("DEBUG: agregarTrabajador called for Trabajador: " + tab.getNombre() + " " + tab.getApellido());
+        Proyecto assignedProject = tab.getProyectoAsignado();
+        String nombreProyecto = "Sin Proyecto"; 
+        if (assignedProject != null) {
+            nombreProyecto = assignedProject.getNombreProyecto();
+            if (nombreProyecto == null || nombreProyecto.trim().isEmpty()) {
+                nombreProyecto = "Proyecto sin nombre"; // Handle empty string project name
+            }
+        }
+        System.out.println("DEBUG: Project Name extracted in RegTrabajador: '" + nombreProyecto + "'");
+    	//String nombreProyecto = (tab.getProyectoAsignado() != null) ? tab.getProyectoAsignado().getNombreProyecto() : "Sin Proyecto";
+        Object[] rowData = {
+            tab.getCedulaTrab(),
+            tab.getPosicion(),     
+            tab.getEspecialidad(),
+            tab.getNombre(),
+            tab.getApellido(),
+            tab.getSalario(),
+            nombreProyecto,
+            tab.getCalificacionAnual()
+        };
+        tableModel.addRow(rowData);
+    }
 	
 }

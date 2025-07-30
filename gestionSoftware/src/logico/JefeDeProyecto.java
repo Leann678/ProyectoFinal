@@ -5,8 +5,7 @@ public class JefeDeProyecto extends Trabajador {
 
 	public JefeDeProyecto(String cedulaTrab, String nombre, String apellido, String direccion, String genero, int edad,
 			float salario, String calificacionAnual, Proyecto proyectoAsignado) {
-		super(cedulaTrab, nombre, apellido, direccion, genero, edad, salario, calificacionAnual, proyectoAsignado);
-		// TODO Auto-generated constructor stub
+		super(cedulaTrab, nombre, apellido, direccion, genero, edad, salario, calificacionAnual, proyectoAsignado, calificacionAnual, calificacionAnual);
 	}
 
 	/**

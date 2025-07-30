@@ -29,7 +29,9 @@ public class Empresa {
     public boolean registrarTrabajador(Trabajador t) {
         return misTrab.add(t);
     }
-
+    public List<Trabajador> getMisTrab() {
+        return misTrab;
+    }
        public boolean registrarCliente(Cliente c) {
         return misClientes.add(c);
     }

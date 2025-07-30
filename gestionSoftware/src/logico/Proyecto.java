@@ -18,6 +18,10 @@ public class Proyecto {
 	    this.setContrato(contrato);
 	}
 	
+	public Proyecto(String text) {
+		this.nombreProyecto = text;
+		}
+
 	public String getNombreProyecto() {
 		return nombreProyecto;
 	}
