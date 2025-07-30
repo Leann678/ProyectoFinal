@@ -3,76 +3,104 @@ package logico;
 import java.util.ArrayList;
 
 public class Cliente {
-	private String nombre;
-	private String apellido;
-	private String cedulaCliente;
-	private String direccion;
-	private int cantProyectos;
-	private ArrayList<Proyecto>misProyectos;
-	
-	public Cliente(String nombre, String apellido, String cedulaCliente, String direccion, int cantProyectos) {
-		super();
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.cedulaCliente = cedulaCliente;
-		this.direccion = direccion;
-		this.cantProyectos = cantProyectos;
-	}
+    private String cedulaCliente;
+    private String nombre;
+    private String apellido;
+    private String direccion;
+    private String telefono;
+    private String email;
+    private int cantProyectos;
 
-	public String getNombre() {
-		return nombre;
-	}
+    // Constructor con 6 argumentos String (para compatibilidad si lo usas en otros lugares)
+    public Cliente(String cedulaCliente, String nombre, String apellido, String direccion, String telefono, String email) {
+        super();
+        this.cedulaCliente = cedulaCliente;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.email = email;
+        this.cantProyectos = 0;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    // Constructor con 5 argumentos (nombre, apellido, cedula, direccion, cantProyectos)
+    // ESTE ES EL QUE InsertarContrato ESTÁ LLAMANDO ACTUALMENTE.
+    public Cliente(String nombre, String apellido, String cedulaCliente, String direccion, int cantProyectos) {
+        super();
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.cedulaCliente = cedulaCliente;
+        this.direccion = direccion;
+        this.cantProyectos = cantProyectos;
+        this.telefono = ""; // Valores por defecto para los campos no incluidos en este constructor
+        this.email = "";
+    }
 
-	public String getApellido() {
-		return apellido;
-	}
+    // --- Getters y Setters ---
+    public String getCedulaCliente() {
+        return cedulaCliente;
+    }
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
+    public void setCedulaCliente(String cedulaCliente) {
+        this.cedulaCliente = cedulaCliente;
+    }
 
-	public String getCedulaCliente() {
-		return cedulaCliente;
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public void setCedulaCliente(String cedulaCliente) {
-		this.cedulaCliente = cedulaCliente;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public String getDireccion() {
-		return direccion;
-	}
+    public String getApellido() {
+        return apellido;
+    }
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
 
-	public int getCantProyectos() {
-		return cantProyectos;
-	}
+    public String getDireccion() {
+        return direccion;
+    }
 
-	public void setCantProyectos(int cantProyectos) {
-		this.cantProyectos = cantProyectos;
-	}
-	
-	public boolean agregarProyecto() {
-	    if (cantProyectos >= 5) return false; 
-	    cantProyectos++;
-	    return true;
-	}
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
 
+    public String getTelefono() {
+        return telefono;
+    }
 
-	public boolean estaSaturado() {
-	    return cantProyectos >= 5;
-	}
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
 
-	@Override
-	public String toString() {
-	    return "ID: " + cedulaCliente + ", Nombre: " + nombre +
-	           ", DirecciÃ³n: " + direccion + ", Proyectos: " + cantProyectos;
-	}
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getCantProyectos() {
+        return cantProyectos;
+    }
+
+    public void agregarProyecto() {
+        this.cantProyectos++;
+    }
+
+    public boolean estaSaturado() {
+        return this.cantProyectos >= 3; // Límite de saturación de ejemplo
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente [Cedula=" + cedulaCliente + ", Nombre=" + nombre + " " + apellido +
+               ", Direccion=" + direccion + ", Telefono=" + telefono + ", Email=" + email +
+               ", Proyectos Asignados=" + cantProyectos + "]";
+    }
 }

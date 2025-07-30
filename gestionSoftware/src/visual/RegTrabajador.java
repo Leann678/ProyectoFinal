@@ -55,7 +55,7 @@ public class RegTrabajador extends JInternalFrame {
         btnInsertar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	InstertarTrabajador insertTra = new InstertarTrabajador(RegTrabajador.this);
+            	InsertarTrabajador insertTra = new InsertarTrabajador(RegTrabajador.this);
             	insertTra.setLocationRelativeTo(RegTrabajador.this);
                  insertTra.setVisible(true);
                 }

@@ -2,77 +2,41 @@ package logico;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Proyecto {
-	private String nombreProyecto;
-	private ArrayList<Trabajador>misTrab;
-	private ArrayList<Cliente>misClientes;
-	private Contrato contrato;
-	
-	
-	public Proyecto(String nombreProyecto, ArrayList<Trabajador> misTrab, ArrayList<Cliente> misClientes, Contrato contrato) {
-		super();
-		this.nombreProyecto = nombreProyecto;
-		this.misTrab = new ArrayList<>();
-	    this.setContrato(contrato);
-	}
-	
-	public Proyecto(String text) {
-		this.nombreProyecto = text;
-		}
+    private String nombreProyecto;
+    private List<Cliente> misClientes; 
+   
+    public Proyecto(String nombreProyecto) {
+        super();
+        this.nombreProyecto = nombreProyecto;
+        this.misClientes = new ArrayList<>(); 
+    }
 
-	public String getNombreProyecto() {
-		return nombreProyecto;
-	}
-	public void setNombreProyecto(String nombreProyecto) {
-		this.nombreProyecto = nombreProyecto;
-	}
-	public ArrayList<Trabajador> getMisTrab() {
-		return misTrab;
-	}
-	public void setMisTrab(ArrayList<Trabajador> misTrab) {
-		this.misTrab = misTrab;
-	}
-	public List<Cliente> getMisClientes() {
-		return misClientes;
-	}
-	public void setMisClientes(ArrayList<Cliente> misClientes) {
-		this.misClientes = misClientes;
-	}
-	
-	public boolean agregarCliente(Cliente cliente) {
-	    if (misClientes.size() >= 5) return false;
-	    return misClientes.add(cliente);
-	}
+    public String getNombreProyecto() {
+        return nombreProyecto;
+    }
 
-	public boolean estaSaturado() {
-	    return misClientes.size() >= 5;
-	}
+    public void setNombreProyecto(String nombreProyecto) {
+        this.nombreProyecto = nombreProyecto;
+    }
 
-	public void agregarTrabajador(Trabajador trabajador) {
-		misTrab.add(trabajador);
-	}
+    public List<Cliente> getMisClientes() {
+        return misClientes;
+    }
 
-	public ArrayList<Trabajador> obtenerTrabajadoresPorRol(String rol) {
-	    return misTrab.stream()
-	        .filter(t -> t.getClass().getSimpleName().equalsIgnoreCase(rol))
-	        .collect(Collectors.toCollection(ArrayList::new));
+    public void agregarCliente(Cliente cliente) {       
+        if (!misClientes.contains(cliente)) {
+            misClientes.add(cliente);
+        }
+    }
 
-	}
+    public boolean estaSaturado() {      
+        return this.misClientes.size() >= 5;
+    }
 
-	/**
-	 * @return the contrato
-	 */
-	public Contrato getContrato() {
-		return contrato;
-	}
-
-	/**
-	 * @param contrato the contrato to set
-	 */
-	public void setContrato(Contrato contrato) {
-		this.contrato = contrato;
-	}
-
+    @Override
+    public String toString() {
+        return "Proyecto [Nombre=" + nombreProyecto + ", Clientes Asignados=" + misClientes.size() + "]";
+    }
 }

@@ -28,7 +28,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.SpinnerNumberModel;
 
-public class InstertarTrabajador extends JDialog {
+public class InsertarTrabajador extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtCedula;
@@ -55,7 +55,7 @@ public class InstertarTrabajador extends JDialog {
 	public static void main(String[] args) {
 		try {
 			// When launching from main, we pass null for the parent frame
-			InstertarTrabajador dialog = new InstertarTrabajador(null);
+			InsertarTrabajador dialog = new InsertarTrabajador(null);
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -64,7 +64,7 @@ public class InstertarTrabajador extends JDialog {
 	}
 
 	
-	public InstertarTrabajador() {
+	public InsertarTrabajador() {
 		this(null); 
 	}
 
@@ -72,7 +72,7 @@ public class InstertarTrabajador extends JDialog {
 	 * Parameterized constructor to create the dialog.
 	 * @param parent The instance of RegTrabajador that opened this dialog.
 	 */
-	public InstertarTrabajador(RegTrabajador parent) {
+	public InsertarTrabajador(RegTrabajador parent) {
 		this.parentFrame = parent; 
 
 		// Basic dialog setup
@@ -231,7 +231,7 @@ public class InstertarTrabajador extends JDialog {
 					txtApellido.getText().isEmpty() || txtDirreccion.getText().isEmpty() ||
 					txtProyecto.getText().isEmpty() || cbxGenero.getSelectedIndex() == 0 ||
 					cbxPosicion.getSelectedIndex() == 0 || cbxCA.getSelectedIndex() == 0) {
-					JOptionPane.showMessageDialog(InstertarTrabajador.this, "Por favor, complete todos los campos obligatorios.", "Campos Incompletos", JOptionPane.WARNING_MESSAGE);
+					JOptionPane.showMessageDialog(InsertarTrabajador.this, "Por favor, complete todos los campos obligatorios.", "Campos Incompletos", JOptionPane.WARNING_MESSAGE);
 					System.out.println("DEBUG: Validation failed - fields incomplete.");
 					return; 
 				}
@@ -275,16 +275,16 @@ public class InstertarTrabajador extends JDialog {
 						System.out.println("DEBUG: Parent frame is NULL. Cannot update table directly.");
 					}
 
-					JOptionPane.showMessageDialog(InstertarTrabajador.this, "Trabajador registrado con éxito!", "Registro Exitoso", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(InsertarTrabajador.this, "Trabajador registrado con éxito!", "Registro Exitoso", JOptionPane.INFORMATION_MESSAGE);
 					dispose(); 
 
 				} catch (NumberFormatException ex) {
-					JOptionPane.showMessageDialog(InstertarTrabajador.this, "Edad o Salario deben ser números válidos. Error: " + ex.getMessage(), "Error de Formato", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(InsertarTrabajador.this, "Edad o Salario deben ser números válidos. Error: " + ex.getMessage(), "Error de Formato", JOptionPane.ERROR_MESSAGE);
 					System.err.println("ERROR: NumberFormatException - " + ex.getMessage());
 					ex.printStackTrace();
 				} catch (Exception ex) { 
 					ex.printStackTrace();
-					JOptionPane.showMessageDialog(InstertarTrabajador.this, "Ocurrió un error inesperado al registrar el trabajador: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(InsertarTrabajador.this, "Ocurrió un error inesperado al registrar el trabajador: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 					System.err.println("ERROR: General Exception caught - " + ex.getMessage());
 				}
 			}

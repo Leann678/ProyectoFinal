@@ -15,6 +15,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.border.CompoundBorder; 
+import logico.Empresa;
+import logico.Contrato;
 
 
 public class RegContrato extends JInternalFrame {
@@ -57,8 +59,6 @@ public class RegContrato extends JInternalFrame {
         //2
         tableModel.addColumn("Fecha de Entrega");
         //3
-        tableModel.addColumn("Cantidad de Clientes Por Proyecto");
-        //5
         tableModel.addColumn("Cedula Cliente");
        //6
         tableModel.addColumn("Proyecto");
@@ -70,12 +70,38 @@ public class RegContrato extends JInternalFrame {
         JButton btnInsertar = new JButton("Insertar Nuevo Contrato");
         btnInsertar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		InsertarContrato insertCont = new InsertarContrato();
+        		InsertarContrato insertCont = new InsertarContrato(RegContrato.this);
         		insertCont.setLocationRelativeTo(RegContrato.this);
         		insertCont.setVisible(true);
         	}
         });
         buttonPanel.add(btnInsertar);
-        mainContentPanel.add(buttonPanel, BorderLayout.SOUTH); 	}
-
+        mainContentPanel.add(buttonPanel, BorderLayout.SOUTH); 	
+        loadAllContratos();
+	}
+	 public void agregarContrato(Contrato contrato) {
+	        String nombreProyecto = "N/A";
+	        if (contrato.getNombreProyecto() != null) { 
+	            nombreProyecto = contrato.getNombreProyecto().getNombreProyecto();
+	        }
+	        Object[] rowData = {
+	            contrato.getIdContrato(),
+	            contrato.getfInicio().toString(),
+	            contrato.getfEntrega().toString(),
+	            contrato.getCedulaCliente(), 
+	            nombreProyecto
+	        };
+	        tableModel.addRow(rowData);
+	    }
+  
+	    public void loadAllContratos() {
+	        tableModel.setRowCount(0); 
+	        if (Empresa.getInstance() != null && Empresa.getInstance().getContratos() != null) {
+	            for (Contrato c : Empresa.getInstance().getContratos()) {
+	                agregarContrato(c); 
+	            }
+	        }
+	    }
+        
 }
+

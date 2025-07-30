@@ -12,7 +12,7 @@ public class Contrato {
 	private Proyecto nombreProyecto;
 	private Cliente cliente;
 	
-	public Contrato(LocalDate fInicio, LocalDate fEntrega, int cantClientesProyecto, String idContrato, String cedulaCliente,
+	public Contrato(LocalDate fInicio, LocalDate fEntrega, String idContrato, String cedulaCliente,
 			Proyecto nombreProyecto) {
 		super();
 		this.fInicio = fInicio;
@@ -55,7 +55,9 @@ public class Contrato {
 	public Proyecto getNombreProyecto() {
 		return nombreProyecto;
 	}
-
+	public void setNombreProyecto(Proyecto nombreProyecto) { 
+        this.nombreProyecto = nombreProyecto;
+    }
 	
 	public boolean esEntregaATiempo(LocalDate fechaEntregaReal) {
         return !fechaEntregaReal.isAfter(fEntrega);
@@ -78,5 +80,9 @@ public class Contrato {
 
 	public void setProyecto(Proyecto nombreProyecto) {
 		this.nombreProyecto = nombreProyecto;
+	}
+	
+	public Object getProyectoAsociado() {
+		return null;
 	}
 }
