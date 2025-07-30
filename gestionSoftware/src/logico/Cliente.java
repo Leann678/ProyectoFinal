@@ -7,8 +7,6 @@ public class Cliente {
     private String nombre;
     private String apellido;
     private String direccion;
-    private String telefono;
-    private String email;
     private int cantProyectos;
 
     public Cliente(String cedulaCliente, String nombre, String apellido, String direccion, String telefono, String email) {
