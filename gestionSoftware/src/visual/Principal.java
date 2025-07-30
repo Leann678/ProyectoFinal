@@ -118,7 +118,6 @@ public class Principal extends JFrame {
 
 	/**
 	 * Create the frame.
-	 * @param username 
 	 */
 	public Principal() {
 		setFont(new Font("Cambria", Font.BOLD | Font.ITALIC, 18));
