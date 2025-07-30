@@ -68,25 +68,22 @@ public class Principal extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Empresa.getInstance(); // Inicializa el singleton de Empresa
-
-					// Registrar Clientes de prueba
+					Empresa.getInstance(); 
 					Empresa.getInstance().registrarCliente(new Cliente("Juan", "Perez", "001-000000-0", "Calle A #123", 0));
 					Empresa.getInstance().registrarCliente(new Cliente("Maria", "Lopez", "002-000000-1", "Avenida B #45", 0));
-		            Empresa.getInstance().registrarCliente(new Cliente("Carlos", "Gomez", "323232", "Calle Z #10", 0)); // Cliente del screenshot
-                    Empresa.getInstance().registrarCliente(new Cliente("Ana", "Diaz", "631975", "Calle Principal #5", 0)); // Cliente del screenshot anterior
+		            Empresa.getInstance().registrarCliente(new Cliente("Carlos", "Gomez", "323232", "Calle Z #10", 0)); 
+                    Empresa.getInstance().registrarCliente(new Cliente("Ana", "Diaz", "631975", "Calle Principal #5", 0)); 
 
-		            // Registrar Proyectos de prueba
-		            Proyecto projApp = new Proyecto("app"); // Proyecto del screenshot
+		         
+		            Proyecto projApp = new Proyecto("app"); 
 		            Proyecto projWeb = new Proyecto("Sitio Web");
-		            Proyecto projTrtr = new Proyecto("trtr"); // Proyecto "trtr"
-                    Proyecto projRe = new Proyecto("re"); // Proyecto "re" del screenshot de error
+		            Proyecto projTrtr = new Proyecto("trtr");
+                    Proyecto projRe = new Proyecto("re"); 
 		            Empresa.getInstance().registrarProyecto(projApp);
 		            Empresa.getInstance().registrarProyecto(projWeb);
 		            Empresa.getInstance().registrarProyecto(projTrtr);
-                    Empresa.getInstance().registrarProyecto(projRe); // Registrar "re"
+                    Empresa.getInstance().registrarProyecto(projRe);
 
-		            // Registrar Trabajadores de prueba y asignarlos a proyectos
 		            Empresa.getInstance().registrarTrabajador(new Trabajador(
 		                "T001", "Worker1", "Last1", "Dir1", "M", 30, 1500.0f, "A", projApp, "Developer", "Java"));
 		            Empresa.getInstance().registrarTrabajador(new Trabajador(
@@ -95,11 +92,11 @@ public class Principal extends JFrame {
 		                "T003", "Worker3", "Last3", "Dir3", "M", 35, 1800.0f, "A", projApp, "Lead", "Management"));
 		            Empresa.getInstance().registrarTrabajador(new Trabajador(
 		                "T004", "Worker4", "Last4", "Dir4", "F", 28, 1000.0f, "C", projTrtr, "Tester", "QA"));
-                    Empresa.getInstance().registrarTrabajador(new Trabajador( // Asignar trabajador a "re"
+                    Empresa.getInstance().registrarTrabajador(new Trabajador(
                         "T005", "Worker5", "Last5", "Dir5", "M", 32, 1600.0f, "D", projRe, "DevOps", "Linux"));
 
 
-                    // Debugging: Print initial state of Empresa
+                  
                     System.out.println("--- DEBUG: Empresa State after initial data load in Principal.main ---");
                     System.out.println("Clients in Empresa: " + Empresa.getInstance().getMisClientes().size());
                     Empresa.getInstance().getMisClientes().forEach(c -> System.out.println("  Client: " + c.getCedulaCliente() + " - " + c.getNombre()));
@@ -209,7 +206,7 @@ public class Principal extends JFrame {
 		panel.add(btnNewButton);
 		
 		//Prueba
-		 desktopPane = new JDesktopPane(); // The "desktop" area
+		 desktopPane = new JDesktopPane(); 
 	        getContentPane().add(desktopPane, BorderLayout.CENTER);
 
 		//REGISTRAR TRABAJADOR
