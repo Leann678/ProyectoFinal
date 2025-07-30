@@ -69,7 +69,7 @@ public class InsertarContrato extends JDialog {
 		setLocationRelativeTo(null);
 
 		
-		// --- Labels ---
+	
 				JLabel lblNewLabel = new JLabel("Fecha de Inicio (YYYY-MM-DD):"); 
 				lblNewLabel.setFont(new Font("Cambria", Font.BOLD, 15));
 				lblNewLabel.setBounds(12, 13, 250, 16); 
@@ -95,7 +95,7 @@ public class InsertarContrato extends JDialog {
 				lblNewLabel_3.setBounds(331, 222, 86, 16); 
 				contentPanel.add(lblNewLabel_3);
 
-				// --- TextFields and ComboBoxes ---
+				
 				txtFechaInicio = new JTextField(LocalDate.now().toString()); 
 				txtFechaInicio.setBounds(12, 60, 172, 32);
 				contentPanel.add(txtFechaInicio);
@@ -161,7 +161,7 @@ public class InsertarContrato extends JDialog {
 									return;
 								}
 							} catch (DateTimeParseException ex) {
-								JOptionPane.showMessageDialog(InsertarContrato.this, "Formato de fecha inv·lido. Use YYYY-MM-DD.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
+								JOptionPane.showMessageDialog(InsertarContrato.this, "Formato de fecha inv√°lido. Use YYYY-MM-DD.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
 								return;
 							}
 
@@ -200,7 +200,7 @@ public class InsertarContrato extends JDialog {
 									boolean contratoConcedido = Empresa.getInstance().concederContrato(newContrato);
 
 									if (contratoConcedido) {
-										JOptionPane.showMessageDialog(InsertarContrato.this, "Contrato registrado con Èxito!", "Registro Exitoso", JOptionPane.INFORMATION_MESSAGE);
+										JOptionPane.showMessageDialog(InsertarContrato.this, "Contrato registrado con √©xito!", "Registro Exitoso", JOptionPane.INFORMATION_MESSAGE);
 										if (parentFrame != null) {
 											parentFrame.agregarContrato(newContrato);
 										}
