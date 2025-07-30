@@ -70,7 +70,6 @@ public class InsertarTrabajador extends JDialog {
 
 	/**
 	 * Parameterized constructor to create the dialog.
-	 * @param parent The instance of RegTrabajador that opened this dialog.
 	 */
 	public InsertarTrabajador(RegTrabajador parent) {
 		this.parentFrame = parent; 
@@ -275,16 +274,16 @@ public class InsertarTrabajador extends JDialog {
 						System.out.println("DEBUG: Parent frame is NULL. Cannot update table directly.");
 					}
 
-					JOptionPane.showMessageDialog(InsertarTrabajador.this, "Trabajador registrado con éxito!", "Registro Exitoso", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(InsertarTrabajador.this, "Trabajador registrado con Ã©xito!", "Registro Exitoso", JOptionPane.INFORMATION_MESSAGE);
 					dispose(); 
 
 				} catch (NumberFormatException ex) {
-					JOptionPane.showMessageDialog(InsertarTrabajador.this, "Edad o Salario deben ser números válidos. Error: " + ex.getMessage(), "Error de Formato", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(InsertarTrabajador.this, "Edad o Salario deben ser nÃºmeros vÃ¡lidos. Error: " + ex.getMessage(), "Error de Formato", JOptionPane.ERROR_MESSAGE);
 					System.err.println("ERROR: NumberFormatException - " + ex.getMessage());
 					ex.printStackTrace();
 				} catch (Exception ex) { 
 					ex.printStackTrace();
-					JOptionPane.showMessageDialog(InsertarTrabajador.this, "Ocurrió un error inesperado al registrar el trabajador: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(InsertarTrabajador.this, "OcurriÃ³ un error inesperado al registrar el trabajador: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 					System.err.println("ERROR: General Exception caught - " + ex.getMessage());
 				}
 			}
