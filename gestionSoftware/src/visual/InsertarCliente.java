@@ -16,28 +16,27 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import logico.Cliente;
+import logico.Empresa;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
 
 public class InsertarCliente extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtCedula;
-	private JTextField txtEspecialidad;
 	private JTextField txtNombre;
 	private JTextField txtApellido;
 	private JTextField txtDirreccion;
-	private JTextField txtEdad;
-	private JTextField txtSalario;
-	private JTextField txtProyecto;
-	private JComboBox <String> cbxPosicion;
-	private JComboBox <String> cbxGenero;
-	private JComboBox <String> cbxCA;
-	private boolean confirmed = false;
+	private JSpinner spnProyecto;
 	private JButton  btnOK;
 	private JButton  btnCancelar;
-	
+    private RegCliente parentFrame;
+
 	/**
 	 * Launch the application.
 	 */
@@ -50,11 +49,15 @@ public class InsertarCliente extends JDialog {
 			e.printStackTrace();
 		}
 	}
+	 public InsertarCliente() {
+	        this(null);
+	    }
 
 	/**
 	 * Create the dialog.
 	 */
-	public InsertarCliente() {
+	public InsertarCliente(RegCliente parent) {
+		 this.parentFrame = parent;
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Login.class.getResource("/images/favicon-32x32.png")));
 		setTitle("Insertar Cliente");
 		setBounds(100, 100, 734, 572);
@@ -96,6 +99,12 @@ public class InsertarCliente extends JDialog {
 		contentPanel.add(txtCedula);
 		txtCedula.setColumns(10);
 		
+		spnProyecto = new JSpinner();
+		spnProyecto.setModel(new SpinnerNumberModel(0, 0, 5, 1));
+		spnProyecto.setBounds(447, 53, 179, 35);
+		contentPanel.add(spnProyecto);
+		setLocationRelativeTo(null);
+		
 		txtNombre = new JTextField();
 		txtNombre.setFont(new Font("Cambria", Font.PLAIN, 13));
 		txtNombre.setColumns(10);
@@ -113,21 +122,51 @@ public class InsertarCliente extends JDialog {
 		txtDirreccion.setColumns(10);
 		txtDirreccion.setBounds(12, 299, 692, 45);
 		contentPanel.add(txtDirreccion);
-	
-		
-		txtProyecto = new JTextField();
-		txtProyecto.setFont(new Font("Cambria", Font.PLAIN, 13));
-		txtProyecto.setColumns(10);
-		txtProyecto.setBounds(447, 53, 204, 35);
-		contentPanel.add(txtProyecto);
 		
 		btnOK = new JButton("OK");
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				 confirmed = true; 
-	                dispose(); 
+				 System.out.println("DEBUG: OK button for Cliente actionPerformed triggered.");
+	                if (txtCedula.getText().isEmpty() || txtNombre.getText().isEmpty() ||
+	                    txtApellido.getText().isEmpty() || txtDirreccion.getText().isEmpty()) {
+	                    System.out.println("DEBUG: Validation failed - fields incomplete.");
+	                    return;
+	                }
+	                try {
+	                    System.out.println("DEBUG: Creando objeto Cliente con los datos recolectados.");	          
+	                    Cliente newCliente = new Cliente(
+	                        txtNombre.getText(), 
+	                        txtApellido.getText(), 
+	                        txtCedula.getText(), 
+	                        txtDirreccion.getText(), 
+	                        ((Number)spnProyecto.getValue()).intValue() 	      
+	                    );
+	                    System.out.println("DEBUG: Cliente creado: " + newCliente.getNombre() + " " + newCliente.getApellido());
+
+	                    System.out.println("DEBUG: Registrando Cliente con Empresa.");
+	                    Empresa.getInstance().registrarCliente(newCliente);
+	                    System.out.println("DEBUG: Cliente registrado con Empresa.");
+
+	              
+	                    if (parentFrame != null) {
+	                        System.out.println("DEBUG: El frame padre existe. Intentando añadir el cliente a la tabla.");
+	                        parentFrame.agregarCliente(newCliente); 
+	                        System.out.println("DEBUG: Cliente añadido a la tabla.");
+	                    } else {
+	                        System.out.println("DEBUG: El frame padre es NULL. No se puede actualizar la tabla directamente.");
+	                    }
+
+	                    JOptionPane.showMessageDialog(InsertarCliente.this, "Cliente registrado con éxito!", "Registro Exitoso", JOptionPane.INFORMATION_MESSAGE);
+	                    dispose(); 
+
+	                } catch (Exception ex) {
+	                    ex.printStackTrace();
+	                    System.err.println("ERROR: Excepción general capturada - " + ex.getMessage());
+	                }
+	            }
+
 			}
-		});
+		);
 		btnOK.setFont(new Font("Cambria", Font.BOLD, 17));
 		btnOK.setBorder(new EmptyBorder(0, 0, 0, 0));
 		btnOK.setBounds(472, 487, 97, 25);
@@ -151,10 +190,10 @@ public class InsertarCliente extends JDialog {
 		btnCancelar.setFont(new Font("Cambria", Font.BOLD, 17));
 		btnCancelar.setBounds(583, 487, 121, 25);
 		contentPanel.add(btnCancelar);
-		setLocationRelativeTo(null);
+		
+		
 		
 		}
-
 	}
 
 

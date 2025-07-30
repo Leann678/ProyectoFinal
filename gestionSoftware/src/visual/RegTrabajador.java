@@ -72,7 +72,6 @@ public class RegTrabajador extends JInternalFrame {
             }
         }
         System.out.println("DEBUG: Project Name extracted in RegTrabajador: '" + nombreProyecto + "'");
-    	//String nombreProyecto = (tab.getProyectoAsignado() != null) ? tab.getProyectoAsignado().getNombreProyecto() : "Sin Proyecto";
         Object[] rowData = {
             tab.getCedulaTrab(),
             tab.getPosicion(),     

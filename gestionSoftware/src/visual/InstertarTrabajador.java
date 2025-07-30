@@ -227,8 +227,6 @@ public class InstertarTrabajador extends JDialog {
 		btnOK.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("DEBUG: OK button actionPerformed triggered."); 
-
-				// Input validation
 				if (txtCedula.getText().isEmpty() || txtNombre.getText().isEmpty() ||
 					txtApellido.getText().isEmpty() || txtDirreccion.getText().isEmpty() ||
 					txtProyecto.getText().isEmpty() || cbxGenero.getSelectedIndex() == 0 ||

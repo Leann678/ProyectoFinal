@@ -9,6 +9,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+
+import logico.Cliente;
+
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import java.awt.event.ActionEvent;
@@ -58,7 +61,7 @@ public class RegCliente extends JInternalFrame{
         //4
         tableModel.addColumn("Dirreccion");
        //5
-        tableModel.addColumn("Proyecto");
+        tableModel.addColumn("Cantidad Proyecto");
         
         JScrollPane scrollPane = new JScrollPane(table);
         mainContentPanel.add(scrollPane, BorderLayout.CENTER); 
@@ -67,13 +70,25 @@ public class RegCliente extends JInternalFrame{
         JButton btnInsertar = new JButton("Insertar Nuevo Cliente");
         btnInsertar.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		InsertarCliente insertCli = new InsertarCliente();
-        		insertCli.setLocationRelativeTo(RegCliente.this);
-        		insertCli.setVisible(true);
+        		  InsertarCliente insertCli = new InsertarCliente(RegCliente.this);
+                  insertCli.setLocationRelativeTo(RegCliente.this);
+                  insertCli.setVisible(true);
         	}
         });
         buttonPanel.add(btnInsertar);
         mainContentPanel.add(buttonPanel, BorderLayout.SOUTH); 
 	}
+
+	 public void agregarCliente(Cliente newCliente) {
+	        
+	        Object[] rowData = {
+	            newCliente.getCedulaCliente(),
+	            newCliente.getNombre(),
+	            newCliente.getApellido(),
+	            newCliente.getDireccion(),
+	            newCliente.getCantProyectos()
+	        };
+	        tableModel.addRow(rowData);
+	    }
 
 }
