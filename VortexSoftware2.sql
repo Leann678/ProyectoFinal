@@ -6,8 +6,6 @@ CREATE TABLE Cliente (
     nombre VARCHAR(100) NOT NULL,
     apellido VARCHAR(100) NOT NULL,
     direccion VARCHAR(200) NOT NULL,
-    telefono varchar(50) not null,
-    email varchar(50) not null,
     cant_proyectos INT DEFAULT 0 CHECK (cant_proyectos <= 5)
 );
 
