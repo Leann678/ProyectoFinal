@@ -89,6 +89,6 @@ public class RegCliente extends JInternalFrame{
 	            newCliente.getCantProyectos()
 	        };
 	        tableModel.addRow(rowData);
-	    }
+	    }
 
 }
