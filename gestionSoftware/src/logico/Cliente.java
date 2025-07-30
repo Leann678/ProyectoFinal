@@ -11,7 +11,6 @@ public class Cliente {
     private String email;
     private int cantProyectos;
 
-    // Constructor con 6 argumentos String (para compatibilidad si lo usas en otros lugares)
     public Cliente(String cedulaCliente, String nombre, String apellido, String direccion, String telefono, String email) {
         super();
         this.cedulaCliente = cedulaCliente;
@@ -23,8 +22,7 @@ public class Cliente {
         this.cantProyectos = 0;
     }
 
-    // Constructor con 5 argumentos (nombre, apellido, cedula, direccion, cantProyectos)
-    // ESTE ES EL QUE InsertarContrato ESTÁ LLAMANDO ACTUALMENTE.
+ .
     public Cliente(String nombre, String apellido, String cedulaCliente, String direccion, int cantProyectos) {
         super();
         this.nombre = nombre;
@@ -32,7 +30,7 @@ public class Cliente {
         this.cedulaCliente = cedulaCliente;
         this.direccion = direccion;
         this.cantProyectos = cantProyectos;
-        this.telefono = ""; // Valores por defecto para los campos no incluidos en este constructor
+        this.telefono = ""; 
         this.email = "";
     }
 
@@ -94,7 +92,7 @@ public class Cliente {
     }
 
     public boolean estaSaturado() {
-        return this.cantProyectos >= 3; // Límite de saturación de ejemplo
+        return this.cantProyectos >= 3; 
     }
 
     @Override
