@@ -68,7 +68,7 @@ public class RegTrabajador extends JInternalFrame {
         if (assignedProject != null) {
             nombreProyecto = assignedProject.getNombreProyecto();
             if (nombreProyecto == null || nombreProyecto.trim().isEmpty()) {
-                nombreProyecto = "Proyecto sin nombre"; // Handle empty string project name
+                nombreProyecto = "Proyecto sin nombre";
             }
         }
         System.out.println("DEBUG: Project Name extracted in RegTrabajador: '" + nombreProyecto + "'");
